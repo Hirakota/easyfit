@@ -1,1 +1,40 @@
-<p>daily-ratio works!</p>
+<form
+  [formGroup]="dailyRationForm"
+  (ngSubmit)="onFormSubmit()"
+  style="width: 300px; display: grid"
+  class="daily-form"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Пол</mat-label>
+    <mat-select formControlName="gender" placeholder="">
+      <mat-option [value]="0">Муж</mat-option>
+      <mat-option [value]="1">Жен</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Рост</mat-label>
+    <input formControlName="height" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Вес</mat-label>
+    <input formControlName="weight" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Возраст</mat-label>
+    <input formControlName="age" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Степень физической активности</mat-label>
+    <mat-select formControlName="activity" placeholder="">
+      <mat-option [value]="0">естественный обмен</mat-option>
+      <mat-option [value]="1">нет физической нагрузки</mat-option>
+      <mat-option [value]="2">спорт 1-3 раза в неделю</mat-option>
+      <mat-option [value]="3">спорт 4-5 раз в неделю</mat-option>
+      <mat-option [value]="4">ежедневные занятия спортом</mat-option>
+      <mat-option [value]="5"
+        >физический труд и ежедневные занятия спортом</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button color="primary" type="submit">Confirm</button>
+</form>

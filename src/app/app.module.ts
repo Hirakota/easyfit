@@ -3,13 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DailyRatioComponent } from './components/daily-ratio/daily-ratio.component';
 import { DailyRatioModule } from './components/daily-ratio/daily-ratio.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HeaderModule} from './shared/header/header.module';
+import { FoodTabComponent } from './components/food-tab/food-tab.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, DailyRatioModule, BrowserAnimationsModule],
+  declarations: [AppComponent, FoodTabComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    DailyRatioModule,
+    BrowserAnimationsModule,
+    HeaderModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
