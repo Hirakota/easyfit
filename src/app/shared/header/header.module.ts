@@ -9,7 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [HeaderComponent]
 })
