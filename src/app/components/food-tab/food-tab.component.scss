@@ -1,6 +1,7 @@
+@import "~@angular/material/theming";
+
 :host {
   .food-tab {
-    width: 100%;
     padding: 1rem 2rem;
 
     border: 1px solid purple;
@@ -32,6 +33,31 @@
           font-weight: 500;
 
           color: black;
+          transition: .5s ease-in-out;
+        }
+
+        td,th {
+          padding: 0 1rem;
+          vertical-align: center;
+        }
+
+        th {
+          color: white;
+          vertical-align: center;
+          background-color: mat-color($mat-deep-purple, 500);
+        }
+
+        th:not(:last-child),
+        td:not(:last-child) {
+        }
+
+        &-row:not(th) {
+          transition: .5s ease-in-out;
+        }
+        &-row:hover {
+          cursor: pointer;
+          transition: .5s ease-in-out;
+          background-color: mat-color($mat-deep-purple, 100);
         }
       }
     }
