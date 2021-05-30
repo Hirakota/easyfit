@@ -8,17 +8,6 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class TestPageComponent implements OnInit {
 
-  allFood = [
-    {
-      type: 'Крупа',
-      list: [{name: 'Рис вареный', value: 200}, {name: 'Гречка', energyValue: 170}]
-    },
-    {
-      type: 'Напитки',
-      list: [{name: 'Кола', value: 440}, {name: 'Минералка', energyValue: 20}]
-    }
-  ];
-
   constructor() { }
 
   ngOnInit(): void {

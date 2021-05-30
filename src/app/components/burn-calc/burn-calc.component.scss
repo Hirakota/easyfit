@@ -1,0 +1,98 @@
+@import "~@angular/material/theming";
+
+:host {
+  .burn-cal {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid mat-color($mat-deep-purple, 500);
+    border-radius: .5rem;
+
+    &-header {
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0 2rem;
+
+      height: 3rem;
+      background-color: mat-color($mat-deep-purple, 500);
+
+      .header-right-side {
+        display: flex;
+        align-items: center;
+
+        .sum-block {
+          height: 100%;
+          background-color: white;
+
+          padding: 0 .5rem;
+
+          border-radius: .2rem;
+
+          span {color: mat-color($mat-deep-purple, 500);}
+        }
+      }
+
+      span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: white;
+      }
+    }
+
+    &-body {
+      padding: 0 1rem;
+
+      .burn-cell {
+        display: grid;
+        grid-template-columns: 10% 45% 25% 15% 5%;
+
+        align-items: center;
+
+        span {
+          padding: 0 .5rem;
+          vertical-align: center;
+        }
+
+        span:nth-child(1) {
+          width: 90%;
+        }
+        span:nth-child(2) {
+          width: 70%;
+        }
+
+        .delete-btn {
+          .delete-icon {
+            font-size: 1.2rem;
+            color: #a4a4a4;
+          }
+        }
+      }
+      .burn-cell:first-child {
+        padding: 1rem 0;
+        border-bottom: 2px solid mat-color($mat-deep-purple, 500);
+      }
+      .burn-cell:first-child,
+      .burn-cell:last-child {
+        border-bottom: 2px solid mat-color($mat-deep-purple, 500);
+      }
+      .burn-cell:not(:last-child, :first-child) {
+        border-bottom: 2px dashed mat-color($mat-deep-purple, 500);
+      }
+    }
+    &-footer {
+      display: flex;
+      justify-content: center;
+
+      padding: 1rem;
+
+      button {
+        width: 60%;
+      }
+    }
+
+
+  }
+}

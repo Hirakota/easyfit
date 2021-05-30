@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {StoreService} from '../../services/store.service';
 
 @Component({
   selector: 'app-daily-ratio',
@@ -57,9 +58,12 @@ export class DailyRatioComponent implements OnInit {
     }
 
     sum = Math.round(bmr * activeLvl);
+    this.storeService.setDailyRatio(sum);
+    this.storeService.setUserWeight(this.dailyRationForm.get('weight').value);
   }
 
-  constructor() {}
+  constructor(private storeService: StoreService) {
+  }
 
   ngOnInit(): void {}
 }

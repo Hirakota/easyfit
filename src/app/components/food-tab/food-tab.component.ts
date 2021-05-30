@@ -1,7 +1,9 @@
 import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FoodList} from '../../entities/all.entites';
+import {FoodCategory, FoodList} from '../../entities/all.entites';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MatTable} from '@angular/material/table';
+import {FOODCATEGORIES} from '../../store/food.data';
+import {StoreService} from '../../services/store.service';
 
 @Component({
   selector: 'app-food-tab',
@@ -14,7 +16,7 @@ export class FoodTabComponent implements OnInit, OnDestroy {
 
   buttonIsDisalbed: [boolean, boolean] = [true, true];
 
-  @Input() allFood: any;
+  foodCategories: FoodCategory[];
 
   chooseForm = new FormGroup({
     type: new FormControl(),
@@ -22,18 +24,12 @@ export class FoodTabComponent implements OnInit, OnDestroy {
     weight: new FormControl({value: '', disabled: true}),
   });
 
-  foodList: FoodList[] = [
-    {
-      type: 'Напитки',
-      name: 'Молоко',
-      weight: 300,
-      energyValue: 150
-    }
-  ];
+  foodList: FoodList[] = [];
 
   displayedColumns: string[] = ['type', 'name', 'weight', 'energyValue'];
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, private storeService: StoreService) {
+  }
 
   ngOnInit(): void {
     if (this.foodList.length) {
@@ -42,9 +38,9 @@ export class FoodTabComponent implements OnInit, OnDestroy {
 
     this.chooseForm.controls['type'].valueChanges.subscribe((value) => {
       if (value) {
-          this.chooseForm.controls['name'].enable();
+        this.chooseForm.controls['name'].enable();
       } else {
-          this.chooseForm.controls['name'].disable();
+        this.chooseForm.controls['name'].disable();
       }
     });
     this.chooseForm.controls['name'].valueChanges.subscribe((value) => {
@@ -61,6 +57,8 @@ export class FoodTabComponent implements OnInit, OnDestroy {
         this.buttonIsDisalbed[1] = true;
       }
     });
+
+    this.foodCategories = FOODCATEGORIES;
   }
 
   ngOnDestroy(): void {
@@ -80,13 +78,21 @@ export class FoodTabComponent implements OnInit, OnDestroy {
     this.table.renderRows();
     this.chooseForm.reset();
   }
+
   removeFromList(row: FoodList): void {
     this.foodList.splice(this.foodList.indexOf(row), 1);
 
-    if(!this.foodList.length) {
+    if (!this.foodList.length) {
       this.buttonIsDisalbed[0] = true;
     }
 
     this.table.renderRows();
+  }
+
+  saveDailyPlan(): void {
+    this.storeService.setDailyPlan(this.foodList);
+    this.storeService.detectChanges.next(true);
+
+    this.foodList = [];
   }
 }

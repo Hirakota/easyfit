@@ -2,20 +2,15 @@
 
 :host {
   .daily-plan {
-    height: 100%;
-
-    border: 1px solid mat-color($mat-deep-purple, 500);
+    border: 2px solid mat-color($mat-deep-purple, 500);
     border-radius: .5rem;
 
     &-header {
       display: flex;
-
-      padding: 1rem 2rem;
-
+      height: 3rem;
+      padding: 0 2rem;
       align-items: center;
-
-      border-radius: .5rem .5rem 0 0;
-
+      justify-content: space-between;
       background-color: mat-color($mat-deep-purple, 500);
 
       .header-title {
@@ -23,6 +18,85 @@
         font-size: 1.2rem;
         font-weight: 500;
       }
+
+      .header-right-side {
+        display: flex;
+        align-items: center;
+
+        .sum-block {
+          height: 100%;
+          background-color: white;
+
+          padding: 0 .5rem;
+
+          border-radius: .2rem;
+
+          span {color: mat-color($mat-deep-purple, 500);}
+        }
+
+        .icon {
+          cursor: pointer;
+          transition: ease-in-out .3s;
+        }
+        .icon:hover {
+          color: mat-color($mat-amber, 300);
+        }
+      }
+
+      span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: white;
+      }
+    }
+
+    &-body {
+      padding: 1rem;
+
+      .expansion-panel-header {
+        height: 3rem !important;
+      }
+
+      .expansion-panel-body {
+        width: 100%;
+
+        .cell {
+          display: grid;
+          grid-template-columns: 30% 30% 15% 25%;
+          height: 3rem;
+
+          align-items: center;
+
+          width: 100%;
+        }
+        .cell:not(:last-child) {
+          border-bottom: 2px dashed mat-color($mat-deep-purple, 100);
+        }
+        .cell:last-child {
+          border-bottom: 2px solid mat-color($mat-deep-purple, 100);
+        }
+
+        .cell-header {
+          font-size: 1.05rem;
+          font-weight: 500;
+
+          border-bottom: 2px solid mat-color($mat-deep-purple, 100) !important;
+          border-top: 2px solid mat-color($mat-deep-purple, 100) !important;
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    .mat-expansion-panel-header {
+      padding: 0 1rem !important;
+    }
+    .mat-expansion-panel-header:hover {
+    }
+    .mat-expansion-panel-body {
+      padding: 0 1rem 1rem 1rem;
     }
   }
 }
+
+

@@ -4,15 +4,17 @@
       <div class="header-left-side">
         <span class="title">Easy fit</span>
       </div>
+      <div class="links" style="display: flex; justify-content: space-between">
+        <span [routerLink]="''">Главная</span>
+        <span [routerLink]="'test'" style="margin: 0 .5rem">Тестовая страница</span>
+        <span [routerLink]="'statistics'">Статистика</span>
+      </div>
       <div class="header-right-side">
         <div class="user">
-          <!--<icon name="uim:angle-down" color="#fff" size="1.7rem"></icon>
-          <icon name="uim:user-md" color="#fff" size="1.7rem"></icon>-->
         </div>
         <div class="sign-out">
           <span class="sign-out-text">Sign out</span>
           <mat-icon>logout</mat-icon>
-          <!--<icon name="uim:signout" size="2rem" color="#fff"> </icon>-->
         </div>
       </div>
     </div>

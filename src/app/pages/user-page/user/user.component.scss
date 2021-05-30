@@ -1,0 +1,41 @@
+@import "~@angular/material/theming";
+
+:host {
+  .stat {
+    border: 2px solid mat-color($mat-deep-purple, 500);
+    border-radius: .5rem;
+
+    &-header {
+      background-color: mat-color($mat-deep-purple, 500);
+      color: white;
+      font-weight: 500;
+      font-size: 1.2rem;
+
+      height: 2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-body {
+      display: flex;
+
+      justify-content: space-around;
+
+      padding: 1rem;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        mat-icon {
+          font-size: 1.2rem;
+          height: unset;
+          width: unset;
+          margin-right: .25rem;
+        }
+      }
+    }
+  }
+}

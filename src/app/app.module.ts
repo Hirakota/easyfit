@@ -11,15 +11,22 @@ import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
 import {TestPageModule} from './pages/test-page/test-page.module';
 import {MainPageModule} from './pages/main-page/main-page.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import {UserPageModule} from './pages/user-page/user-page.module';
+import { BurnCalcComponent } from './components/burn-calc/burn-calc.component';
+import {BurnCalcModule} from './components/burn-calc/burn-calc.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HeaderModule,
     TestPageModule,
     MainPageModule,
+    UserPageModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

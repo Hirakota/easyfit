@@ -1,0 +1,42 @@
+<div class="burn-cal">
+  <div class="burn-cal-header">
+    <span>Рассчет рахода кКал.</span>
+    <span class="header-right-side">
+      <div class="sum-block">
+        <span>Итог: {{sumOf | number: '1.0-0'}} кКал.</span>
+      </div>
+      <button mat-icon-button (click)="saveActivity()"><mat-icon class="icon">save</mat-icon></button>
+    </span>
+  </div>
+  <div class="burn-cal-body">
+    <div class="burn-cell">
+      <span>№</span>
+      <span>Вид деятельности</span>
+      <span>Время (мин.)</span>
+      <span>Расход в кКал.</span>
+    </div>
+    <!-- Template -->
+    <div class="burn-cell" *ngFor="let activity of activityList; index as i">
+      <span>{{i + 1}}</span>
+      <span>
+        <mat-form-field appearance="legacy">
+          <mat-label>Выбреите вид деятельности</mat-label>
+          <mat-select [formControl]="activity.activityType" (valueChange)="activity.spendtTime.enable()">
+            <mat-option *ngFor="let activityType of activities" [value]="activityType">{{activityType.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+      <span>
+      <mat-form-field appearance="legacy">
+        <mat-label>Время</mat-label>
+        <input matInput type="number" [formControl]="activity.spendtTime">
+      </mat-form-field>
+      </span>
+      <span>{{activity.result | number: "0.0-0"}} кКал.</span>
+      <button mat-icon-button class="delete-btn" (click)="deleteRow(i)"><mat-icon class="delete-icon">delete</mat-icon></button>
+    </div>
+  </div>
+  <div class="burn-cal-footer">
+    <button mat-flat-button color="primary" style="width: 100%" (click)="addNewRow()"><mat-icon>add</mat-icon></button>
+  </div>
+</div>

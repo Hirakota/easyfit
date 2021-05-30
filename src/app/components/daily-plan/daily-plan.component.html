@@ -1,6 +1,42 @@
 <div class="daily-plan">
   <div class="daily-plan-header">
     <span class="header-title">Дневной план</span>
+    <span class="header-right-side">
+      <div class="sum-block" *ngIf="haveDailyData()">
+        <span>Итог: {{allSum() | number: '0.0-0'}} кКал.</span>
+      </div>
+    </span>
   </div>
+  <div class="daily-plan-body" *ngIf="haveDailyData()">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let plan of dailyPlans; index as i">
+        <mat-expansion-panel-header class="expansion-panel-header">
+          <mat-panel-title>
+            Информация о приеме пищи
+          </mat-panel-title>
+          <mat-panel-description>
+            Итог: {{getSum(i)}}кКал.
+          </mat-panel-description>
+        </mat-expansion-panel-header>
 
+        <div class="expansion-panel-body">
+          <div class="cell cell-header">
+            <span>Категория</span>
+            <span>Наиминование</span>
+            <span>Вес</span>
+            <span>Энергитическая ценность</span>
+          </div>
+          <div class="cell" *ngFor="let food of plan; index as j">
+            <span>{{food.type}}</span>
+            <span>{{food.name}}</span>
+            <span>{{food.weight | number}}</span>
+            <span>{{food?.energyValue | number: "0.0-0"}}кКал.</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div *ngIf="!haveDailyData()">
+    <span>Вы пока ничего не добавили, пожалуйста добавьте продукты в прием пищи. Через калькулятор калорий</span>
+  </div>
 </div>

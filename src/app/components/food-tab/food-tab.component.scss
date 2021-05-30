@@ -2,62 +2,80 @@
 
 :host {
   .food-tab {
-    padding: 1rem 2rem;
-
-    border: 1px solid purple;
+    border: 2px solid mat-color($mat-deep-purple, 500);
     border-radius: .5rem;
 
-    .food-header {
-      width: 100%;
+    &-header {
+      display: flex;
+      align-items: center;
 
-      .choose-body {
-        display: flex;
-        justify-content: space-between;
-      }
+      padding: 0 2rem;
 
-      .main-control {
-        display: flex;
-        justify-content: space-between;
+      height: 3rem;
+      background-color: mat-color($mat-deep-purple, 500);
+
+      span {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 500;
       }
     }
-    .table-wrapper {
-      margin-top: 1.5rem;
 
-      .table {
+    .food-tab-body {
+      padding: 1rem 2rem;
+
+      .food-body-header {
         width: 100%;
-        background-color: #f4f4f4;
 
-        th {
-          width: 25%;
-          font-size: 1rem;
-          font-weight: 500;
-
-          color: black;
-          transition: .5s ease-in-out;
+        .choose-body {
+          display: flex;
+          justify-content: space-between;
         }
 
-        td,th {
-          padding: 0 1rem;
-          vertical-align: center;
+        .main-control {
+          display: flex;
+          justify-content: space-between;
         }
+      }
+      .table-wrapper {
+        margin-top: 1.5rem;
 
-        th {
-          color: white;
-          vertical-align: center;
-          background-color: mat-color($mat-deep-purple, 500);
-        }
+        .table {
+          width: 100%;
+          background-color: #f4f4f4;
 
-        th:not(:last-child),
-        td:not(:last-child) {
-        }
+          th {
+            width: 25%;
+            font-size: 1rem;
+            font-weight: 500;
 
-        &-row:not(th) {
-          transition: .5s ease-in-out;
-        }
-        &-row:hover {
-          cursor: pointer;
-          transition: .5s ease-in-out;
-          background-color: mat-color($mat-deep-purple, 100);
+            color: black;
+            transition: .5s ease-in-out;
+          }
+
+          td,th {
+            padding: 0 1rem;
+            vertical-align: center;
+          }
+
+          th {
+            color: white;
+            vertical-align: center;
+            background-color: mat-color($mat-deep-purple, 500);
+          }
+
+          th:not(:last-child),
+          td:not(:last-child) {
+          }
+
+          &-row:not(th) {
+            transition: .5s ease-in-out;
+          }
+          &-row:hover {
+            cursor: pointer;
+            transition: .5s ease-in-out;
+            background-color: mat-color($mat-deep-purple, 500);
+          }
         }
       }
     }
