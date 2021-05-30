@@ -19,6 +19,7 @@ export class StoreService {
   constructor() {
   }
 
+  // USER WEIGHT
   public setUserWeight(value) {
     localStorage.setItem(DATA_NAME.USER_WEIGHT, JSON.stringify(value));
   }
