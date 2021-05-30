@@ -16,6 +16,8 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import {UserPageModule} from './pages/user-page/user-page.module';
 import { BurnCalcComponent } from './components/burn-calc/burn-calc.component';
 import {BurnCalcModule} from './components/burn-calc/burn-calc.module';
+import { BurnPageComponent } from './pages/burn-page/burn-page.component';
+import {BurnPageModule} from "./pages/burn-page/burn-page.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,7 @@ import {BurnCalcModule} from './components/burn-calc/burn-calc.module';
     TestPageModule,
     MainPageModule,
     UserPageModule,
+    BurnPageModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

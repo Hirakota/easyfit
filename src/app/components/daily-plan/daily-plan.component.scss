@@ -52,6 +52,7 @@
 
     &-body {
       padding: 1rem;
+      overflow-y: auto;
 
       .expansion-panel-header {
         height: 3rem !important;

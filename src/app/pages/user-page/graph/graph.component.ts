@@ -53,19 +53,23 @@ export class GraphComponent implements OnInit {
 
     this.chart = new Chart(this.options);
 
-    this.chart.addSeries({
-      name: 'Съедено',
-      type: 'line',
-      data: this.getData(),
-      color: '#23BF00'
-    }, true, true);
+    if (this.storeService.getAllDailyPlans()) {
+      this.chart.addSeries({
+        name: 'Съедено',
+        type: 'line',
+        data: this.getData(),
+        color: '#23BF00'
+      }, true, true);
+    }
 
-    this.chart.addSeries({
-      name: 'Сожжено',
-      type: 'line',
-      data: this.getData('activity'),
-      color: '#C70039',
-    }, true, true);
+    if (this.storeService.getAllDailyActivity()) {
+      this.chart.addSeries({
+        name: 'Сожжено',
+        type: 'line',
+        data: this.getData('activity'),
+        color: '#C70039',
+      }, true, true);
+    }
   }
 
   private getData(type: string = 'plans'): any[] {
