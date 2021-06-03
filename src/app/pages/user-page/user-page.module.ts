@@ -7,6 +7,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {ChartModule} from 'angular-highcharts';
 import {BrowserModule} from '@angular/platform-browser';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -17,6 +19,9 @@ import {BrowserModule} from '@angular/platform-browser';
     MatIconModule,
     MatButtonModule,
     ChartModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
     BrowserModule
   ],
   exports: [UserPageComponent]

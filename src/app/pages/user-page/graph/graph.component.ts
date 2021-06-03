@@ -13,10 +13,13 @@ export class GraphComponent implements OnInit {
   chart: Chart;
   options: Options;
 
+  checked = false;
+
   constructor(private storeService: StoreService) {
   }
 
   ngOnInit(): void {
+
     this.init();
   }
 
@@ -89,6 +92,9 @@ export class GraphComponent implements OnInit {
       let innerData: any[] = [];
       innerData.push(Date.UTC(dataByDate.planDate[2], dataByDate.planDate[1], dataByDate.planDate[0]));
       let value: number = dataByDate.dailyPlan.reduce((acc, cur) => acc + cur.reduce((innerAcc, innerCur) => innerAcc + innerCur[key], 0), 0);
+      if (type === 'activity' && this.checked) {
+        value += this.storeService.getDailyRatio();
+      }
       innerData.push(Math.round(value));
       result.push(innerData);
     });
@@ -96,4 +102,7 @@ export class GraphComponent implements OnInit {
     return result;
   }
 
+  onCheckBox(): void {
+    setTimeout(() => this.init(), 0);
+  }
 }
