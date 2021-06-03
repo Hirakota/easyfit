@@ -22,6 +22,8 @@ export class DailyRatioComponent implements OnInit {
     let bmr: number;
     let activeLvl: number;
 
+    this.storeService.setUserWeight(this.dailyRationForm.get('weight').value);
+
     if (this.dailyRationForm.get('gender').value === 0) {
       bmr =
         10 * this.dailyRationForm.get('weight').value +
@@ -59,7 +61,6 @@ export class DailyRatioComponent implements OnInit {
 
     sum = Math.round(bmr * activeLvl);
     this.storeService.setDailyRatio(sum);
-    this.storeService.setUserWeight(this.dailyRationForm.get('weight').value);
   }
 
   constructor(private storeService: StoreService) {

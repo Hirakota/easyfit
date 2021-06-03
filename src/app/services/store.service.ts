@@ -20,11 +20,11 @@ export class StoreService {
   }
 
   // USER WEIGHT
-  public setUserWeight(value) {
+  public setUserWeight(value): void {
     localStorage.setItem(DATA_NAME.USER_WEIGHT, JSON.stringify(value));
   }
 
-  public getUserWeight() {
+  public getUserWeight(): number {
     return JSON.parse(localStorage.getItem(DATA_NAME.USER_WEIGHT));
   }
 

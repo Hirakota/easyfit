@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ActivityType} from '../../entities/all.entites';
 import {ACTIVITIES} from '../../store/activity.data';
@@ -22,8 +22,16 @@ export class BurnCalcComponent implements OnInit {
 
   sumOf: number;
 
+  innerWidth: any = window.innerWidth;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
+
   constructor(private storeService: StoreService) {
     this.userWeight = storeService.getUserWeight();
+    console.log(this.userWeight);
     this.sumOf = 0;
   }
 
