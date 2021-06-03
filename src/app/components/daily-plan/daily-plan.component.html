@@ -15,7 +15,7 @@
             Информация о приеме пищи
           </mat-panel-title>
           <mat-panel-description>
-            Итог: {{getSum(i)}}кКал.
+            Итог: {{getSum(i) | number: "0.0-0"}}кКал.
           </mat-panel-description>
         </mat-expansion-panel-header>
 
@@ -36,7 +36,7 @@
       </mat-expansion-panel>
     </mat-accordion>
   </div>
-  <div *ngIf="!haveDailyData()">
-    <span>Вы пока ничего не добавили, пожалуйста добавьте продукты в прием пищи. Через калькулятор калорий</span>
+  <div style="display: flex; padding: 1rem; justify-content: center; font-size: 1.2rem; font-weight: 500" *ngIf="!haveDailyData()">
+    <span>Вы пока ничего не добавили, пожалуйста добавьте продукты в план приема пищи, через калькулятор калорий</span>
   </div>
 </div>

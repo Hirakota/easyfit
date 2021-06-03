@@ -1,1 +1,16 @@
-<p>main-page works!</p>
+<div class="main-page-wrapper">
+  <ng-container *ngIf="haveDailyRation()">
+    <div style="margin-bottom: 2rem">
+      <app-daily-plan></app-daily-plan>
+    </div>
+    <div>
+      <app-food-tab></app-food-tab>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!haveDailyRation()">
+    <div>
+      <h2 style="display: flex; justify-content: center">Пожалуйста заполните форму</h2>
+      <app-daily-ratio></app-daily-ratio>
+    </div>
+  </ng-container>
+</div>

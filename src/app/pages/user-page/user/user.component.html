@@ -3,9 +3,9 @@
     Статистика за день
   </div>
   <div class="stat-body">
-    <span><mat-icon>mode_standby</mat-icon> Суточная норма: {{target}}кКал.</span>
-    <span><mat-icon>restaurant</mat-icon> Съедено: {{dailyCount}}кКал.</span>
-    <span><mat-icon>fitness_center</mat-icon> Сожжено: {{dailyBurn}}кКал.</span>
+    <span><mat-icon>mode_standby</mat-icon> Суточная норма: {{target | number: '0.0-0'}}кКал.</span>
+    <span><mat-icon>restaurant</mat-icon> Съедено: {{dailyCount | number: '0.0-0'}}кКал.</span>
+    <span><mat-icon>fitness_center</mat-icon> Сожжено: {{dailyBurn | number: '0.0-0'}}кКал.</span>
   </div>
 </div>
 <div style="height: 1.5rem"></div>
@@ -14,7 +14,7 @@
     Статистика за все время
   </div>
   <div class="stat-body">
-    <span><mat-icon>restaurant</mat-icon>Съедено: {{allTimeCount}}кКал.</span>
-    <span><mat-icon>fitness_center</mat-icon>Сожжено: {{allTimeBurn}}кКал.</span>
+    <span><mat-icon>restaurant</mat-icon>Съедено: {{allTimeCount | number: '0.0-0'}}кКал.</span>
+    <span><mat-icon>fitness_center</mat-icon>Сожжено: {{allTimeBurn | number: '0.0-0'}}кКал.</span>
   </div>
 </div>

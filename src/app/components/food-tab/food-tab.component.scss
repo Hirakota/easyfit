@@ -30,11 +30,37 @@
         .choose-body {
           display: flex;
           justify-content: space-between;
+
+          @media screen and (max-width: 685px) {
+            display: grid !important;
+
+            grid-template-columns: 100%;
+
+            mat-form-field {
+              width: 100% !important;
+            }
+          }
         }
 
         .main-control {
           display: flex;
           justify-content: space-between;
+
+          button:nth-child(1) {
+            width: 23rem;
+          }
+
+          @media screen and (max-width: 480px) {
+            display: flex;
+            flex-direction: column-reverse;
+
+            button {
+              width: 100% !important;
+            }
+            button:nth-child(2) {
+              margin-bottom: 1rem;
+            }
+          }
         }
       }
       .table-wrapper {
@@ -77,6 +103,10 @@
             background-color: mat-color($mat-deep-purple, 500);
           }
         }
+      }
+
+      @media screen and (max-width: 600px) {
+        padding: 1rem !important;
       }
     }
   }

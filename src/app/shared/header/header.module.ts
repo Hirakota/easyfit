@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {HeaderComponent} from './header.component';
 import {MatIconModule} from '@angular/material/icon';
 import {AppRoutingModule} from '../../app-routing.module';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -11,7 +13,9 @@ import {AppRoutingModule} from '../../app-routing.module';
   imports: [
     CommonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   exports: [HeaderComponent]
 })
